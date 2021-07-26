@@ -15,14 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function addTask(task){
     let li = document.createElement("li")
-    const delBtn = document.createElement("button")
+    let delBtn = document.createElement("button")
     let editBtn = document.createElement("button")
 
     editBtn.textContent = "Edit"
+    delBtn.textContent = " x"
+
     delBtn.addEventListener("click", handleDelete)
     editBtn.addEventListener("click", e => li.textContent = `${task.value} `)
+    
     li.textContent = `${task.value} `
-    delBtn.textContent = " x"
+  
     li.append(delBtn, editBtn)
     taskList.appendChild(li)
   }
@@ -31,7 +34,4 @@ document.addEventListener("DOMContentLoaded", () => {
    e.target.parentNode.remove()
  }
 
- function handleEdit(e){
-   e.textContent = `${e.value} `
- }
 });
